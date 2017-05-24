@@ -1,0 +1,631 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/_posts/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="收藏Ryane  &amp;lt;转载&amp;gt;
+作为一个 Java 程序员，Javadoc 大家都应该写过吧，是不是觉得写的时候特简单呢？相信看完本文后你会若有所思。另外，本文非常适合处女座程序员阅读。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="细节见真功之 Javadoc">
+<meta property="og:url" content="http://hexo.cnhsh12.net/2017/05/24/Java注释/index.html">
+<meta property="og:site_name" content="君莫笑">
+<meta property="og:description" content="收藏Ryane  &amp;lt;转载&amp;gt;
+作为一个 Java 程序员，Javadoc 大家都应该写过吧，是不是觉得写的时候特简单呢？相信看完本文后你会若有所思。另外，本文非常适合处女座程序员阅读。">
+<meta property="og:updated_time" content="2017-05-24T02:49:10.425Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="细节见真功之 Javadoc">
+<meta name="twitter:description" content="收藏Ryane  &amp;lt;转载&amp;gt;
+作为一个 Java 程序员，Javadoc 大家都应该写过吧，是不是觉得写的时候特简单呢？相信看完本文后你会若有所思。另外，本文非常适合处女座程序员阅读。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 细节见真功之 Javadoc | 君莫笑 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">君莫笑</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                细节见真功之 Javadoc
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-24T10:32:56+08:00" content="2017-05-24">
+              2017-05-24
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> 收藏<br>Ryane  &lt;转载&gt;</p>
+<p>作为一个 Java 程序员，Javadoc 大家都应该写过吧，是不是觉得写的时候特简单呢？相信看完本文后你会若有所思。另外，本文非常适合处女座程序员阅读。<a id="more"></a></p>
+<p>句号</p>
+<p>为什么是句号而不是其他的标点符号呢？因为这涉及到一个 JDK 文档生成的规则：</p>
+<p>The first sentence of each doc comment should be a summary sentence, containing a concise but complete description of the API item. This means the first sentence of each member, class, interface or package description. （成员、类、接口或包注释的第一个句子将作为该注释项的总结，这个句子应该是言简意赅的）</p>
+<p>既然提到了句子，那就说明应该用标准的方式——句号来进行第一个句子的断句识别。也许是为了简洁，Javadoc 工具并没有“多语言句号识别”这个特性，所以不管我们用什么语言撰写文档注释，断句符号都必须是英文状态下的句号——.</p>
+<p>比如在 NetBeans IDE 里（默认编辑器配置）可以很直观的看到用于总结的第一个句子和后面描述的区别：</p>
+<p>first-sentence</p>
+<p>在生成 Javadoc 后，类概要页面我们可以看到最终的效果：</p>
+<p>class-summery</p>
+<p>在使用中文撰写文档注释时，为了保持整体风格一致，在所有需要使用句号的地方有两种策略可选择：</p>
+<p>都使用英文句号：这样做可以让生成的文档句号统一，但缺点是看上去有点别扭<br>只有第一个句子使用英文句号，其余地方都是要中文句号：这样做后生成的文档看上去比较顺眼，但别人可能会奇怪为什么第一个句号是 .<br>当然，最彻底的解决方案是不用中文写文档注释，这样就不存在要统一的问题了！</p>
+<p>下面我们重点介绍各种你熟悉的或是不熟悉的 Javadoc 文档标记（它们很有内涵）</p>
+<p>@author</p>
+<p>该标记使用频率是所有文档标记中最高的，我想这是因为：</p>
+<p>做好事要留名<br>使用超简单，就像在填表格（姓名：           ）一样自然<br>来看看大牛怎么写的：</p>
+<p>commons-lang-stringutils</p>
+<p>（from Commons Lang 2.5 StringUtils）</p>
+<p>总结下来有三种写法：</p>
+<p>纯文本<br>带邮箱链接<br>带 HTTP 链接<br>（个人建议用 HTTP 链接：打码时可以顺便推广一下自己的博客，哈哈）</p>
+<p>另外，在 JDK 代码中我们经常看到 @author unascribed，意思是：“该代码第一原作者不是我，但我实在也不知道是谁，就记作无名氏吧”（这是多么严肃的一种版权意识啊）</p>
+<p>@serialXXX</p>
+<p>这个系列应该是最不常用的文档标记了，它们到底是干嘛用的呢？请看这里。</p>
+<p>（我一次也没有使用过这些文档标记，看了官方文档后也还是没有搞懂怎么用，求各位指教）</p>
+<p>@value</p>
+<p>这个文档标记非常实用（不光好用），可以用于生成被标记的常量字段的值。</p>
+<p>直接用于常量字段时：</p>
+<p>value-code</p>
+<p>value-html</p>
+<p>也可以使用引用方式：</p>
+<p>value-ref-code</p>
+<p>value-ref-html </p>
+<p>{@inheritDoc}</p>
+<p> 这个标签体现了 Java 面向对象的精辟所在：不但可以类可以集成，连文档都可以继承（足见 Java 在经典面向对象概念上的完备与圆润）。</p>
+<p>比如有个计算面积的接口：</p>
+<p>inheritdoc-interface-code</p>
+<p>它的实现方法标注了 {@inheritDoc}（处女座阅读提示：无 .）：</p>
+<p>inheritdoc-impl-code</p>
+<p>最后生成的文档：</p>
+<p>inheritdoc-html</p>
+<p>基类的文档注释被继承到了子类<br>子类可以再加入自己的注释（特殊化扩展）<br>@return @param @throws 也会被继承<br>其实在不写 {@inheritDoc} 的情况下也存在文档注释的继承，具体规则请看这里。</p>
+<p>{@link} {@linkplain}</p>
+<p>这两个链接标记大家用/见的应该比较多，但它们有什么区别、在什么场景下该怎么使用很少有人能够区分开（我猜你要用的时候一般也都是用 link 吧）。</p>
+<p>看看官网的标准解释：</p>
+<p>link</p>
+<p>link 和 linkplain 的实参都是 package.class#member label 。唯一的不同就是因为字体不同，如果 label 是个纯文本，那就使用 linkplain 吧。（根据这点，我严重怀疑 Javadoc 文档标记的设计者是处女座，~ ~）</p>
+<p>pre</p>
+<p>没错，这就是那个 HTML 标签，用于显示“原始样子”的。这个标签在写 Javadoc 的时候非常有用，用或者不使用在打码的时候看上去差别不大：</p>
+<p> pre-code</p>
+<p>但最终生成 apidocs 之后差别一目了然（处女座阅读提示：在源码文档注释中特别需要注意 pre 后 { 的位置，紧跟 *，无空格）：</p>
+<p>pre-html</p>
+<p>@since</p>
+<p>这个从字面的意思上很好理解，所以使用的比较多（如同 @author、@version 一样）。但问题是大家写的时候表达的意思五花八门，常见的有：</p>
+<p>想表达日期/时间<br>@since 2014-01-01<br>@since 2014-01-01 14:00:00<br>想表达可运行的 JDK 版本<br>@since JDK1.5<br>想表达加入这个元素的版本<br>@since 1.0.0<br>根据官方文档解释，@since 表达的是被标记元素是哪个发布版本引入的（3）。比如别人在我们的文档注释中看到</p>
+<p>since</p>
+<p>那他可以（应该）认为这个类是在该程序对外发布 1.0.0 版本时已经引入的。如果他要做二次开发，那他就可以很清晰的向后兼容了（我们在用 JDK 的时候就是这个场景）。</p>
+<p>@version</p>
+<p>提到了 @since 就自然会联想到 @version，因为它们的实参都是版本相关的。@version 要表达的是被标记元素自己的版本（注意对比 @since），也就是说这个版本只要代码改过就应该发生变化，而 @since 是不会变的。</p>
+<p>官方文档也解释了怎么用好这个文档标记：通过 SCCS 字符 “%I%, %G%”，例如 1.39, 02/28/97（文件版本号, 日期）生成。但实际上很少有项目这么做（至少目前 Oracle JDK 没这么做，甚至都没有使用 @version，或者是使用了但最后由于特殊原因总体移除了），大家一般都是 @version 1.0.0 然后就再也不修改了，不管被标记的元素改了多少次（这样的做法还不如不写）。</p>
+<p>当然，通过版本控制系统 hook 来做是比较经典的做法，不过这样总感觉没有把这个标记的能力完全发挥出来。在我们的项目里是这样使用的：@version 1.2.3.4, Jun 9, 2014</p>
+<p>重点是版本号部分，在这个例子中从左到右（1.2.3.4）分别表示：</p>
+<p>兼容性位 1，表示兼容性，如果 +1 了说明这个修改是不兼容的<br>特性位 2，表示已引入了两个特性，每次 +1 说明引入一个新特性<br>缺陷修复位 3，表示已经修复了 3 个缺陷，每次 +1 说明修复了一个缺陷<br>重构位 4，表示已经进行了 4 次重构，每次 +1 说明重构了一次<br>前面 3 位表达的意义和 Semantic Versioning 建议的一致，重构我觉得非常重要，所以也加了进来。</p>
+<p>@exception @throws</p>
+<p>这两兄弟的情况比 @link @linkplain 更纠结（人家 link 兄弟最起码可以区分出来使用场景）。按照官方文档解释：它们完全是同义词，没有任何区分。那当年 Sun 在 JDK1.2 的时候为什么要加入 @throws 呢——答案是起名失误了，词性没弄匹配：@throws Exception 比 @exception Exception 更符合语法，代入感更好！（细节：In javadoc, what is the difference between the tags @throws and @exception?）</p>
+<p>标记总表</p>
+<p>来张 Javadoc 文档标记总表：</p>
+<p>Tag    Introduced in JDK/SDK<br>@author    1.0<br>{@code}    1.5<br>{@docRoot}    1.3<br>@deprecated    1.0<br>@exception    1.0<br>{@inheritDoc}    1.4<br>{@link}    1.2<br>{@linkplain}    1.4<br>{@literal}    1.5<br>@param    1.0<br>@return    1.0<br>@see    1.0<br>@serial    1.2<br>@serialData    1.2<br>@serialField    1.2<br>@since    1.1<br>@throws    1.2<br>{@value}    1.4<br>@version    1.0<br>这个表是 JDK7 技术手册里的，从中我们可以看出，自 JDK1.5 以后就没有加过新的文档标记了，目测有两个原因：</p>
+<p>Oracle：“这些已经足够开发人员使用了，没必要加新的了”<br>*Sun：“看吧，Oracle 严重缺乏折腾精神，当初不应该卖给它的”<br>文档标记介绍完了，下面我们来聊聊 Javadoc 相关的其他侃点。</p>
+<p>getter/setter/isTrue</p>
+<p>对于 POJO 来说，这几个方法的注释格式非常固定，一般我们都是用 IDE 自动生成：这样的话别人一看到这样固定格式的注释（或者索性不要添加任何注释）就知道这部分相对于其他部分并不重要，而一旦有的 getter/setter/isTrue 注释不是这样约定的，那就说明了实现上面不只是简单的 get/set/is，还加入了额外的逻辑处理。</p>
+<p>对齐</p>
+<p>Javadoc 文档注释也有对齐（不是前面 pre 例子那种），这里说的对齐主要指的是以源码视图看到的，最典型的场景就是在给方法添加文档注释的时候，我们经常看到两种风格：</p>
+<p>align-para</p>
+<p>第一眼看上去是不是风格 2 要顺眼得多？但最好还是使用风格 1，因为：</p>
+<p>这和编辑器配置的字体有关，如果不是（适合的）等宽字体，那会非常的参差不齐<br>浪费空间，特别是当注释内容多了需要换行的时候会很别扭<br>最后生成的 apidocs 效果是一模一样的（无对齐）<br>（一些 IDE 默认格式化文档注释的时候也是使用风格 1 进行格式化的，强烈建议使用风格 1）</p>
+<p>包注释</p>
+<p>和前面几点打码风格相关的细节比起来，包注释是具有一定的实用性的。虽然大家可能用得很少，但看得应该比较多，就是这部分：</p>
+<p>package</p>
+<p>这里我们使用了两种方式来生成包文档：</p>
+<p>package.html：这是 JDK1.5 以前的方式，现在已经不推荐使用<br>package-info.java：目前推荐方式，因为这样可以使用注解<br>在包上面使用注解？这个用法和在其他地方使用注解一样，只是被标注的元素变成了包，在运行时可以获取到包的注解，然后做你想做的事情吧！</p>
+<p>中文</p>
+<p>一开始我们提到了句号的问题（那的确是一个问题），最后我们来看看中文在写文档注释的时候也非常值得注意的一点（其实不只是 Javadoc 文档注释，该建议也适用于其他一些情况）：在中文和英文、数字中间插入一个空格（本文就是这样排版的）。</p>
+<p>比如说：</p>
+<p>我觉得Java非常cool，特别是JDK8中的lambda，真希望9能带来更多实用特性<br>我觉得 Java 非常 cool，特别是 JDK8 中的 lambda，真希望 9 能带来更多实用特性<br>后者看上去就比前者更舒服一些，这样的排版方式适合纯文本编辑器，如果使用的是 Office 之类的工具就不需要手动空格了，因为它们默认已经处理的很好了。</p>
+<p>总结</p>
+<p>本文介绍了一些 Javadoc 文档注释相关的细节，从这冰山一角相信你对 Java 也有了另一番体验（Java 的进化、工业化）。</p>
+<p>总结一下本文内容：</p>
+<p>对于文档标记，大家可以尽量尝试使用：把自己的思想通过适合的方式表达给他人是一种好习惯<br>对于风格相关，大家也可以适当尝试（处女座/强迫症就算了）：某大厂在某次改句号问题后出现过生产故障<br>不过，大家也千万不要太较真，毕竟对于一个好的程序来说，代码应该就是它的文档（之一）</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/04/linux基础知识/" rel="next" title="linux 基础知识">
+                <i class="fa fa-chevron-left"></i> linux 基础知识
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Tommy" />
+          <p class="site-author-name" itemprop="name">Tommy</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tommy</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

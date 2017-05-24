@@ -1,0 +1,680 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/_posts/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="收藏Ryane  &amp;lt;转载&amp;gt;摘要: 我是一名安卓入门开发者，但，我只是入门！而且我对网站开发以及前端的知识几乎是零基础，所以在自己刚接触这个东西的时候，我像很多人一样，都是上网找教程，但是要知道，那都是程序员的教程。所以对于我这个网站技术小白来说，真是很难受，所以藉此机会写一篇让小白看得懂的教程。如果你是一个小白而且又想做自己的博客，可以，请跟着我的脚步，我会带你真真正正做一个属于你自">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小白独立搭建博客--Github Pages和Hexo简明教程">
+<meta property="og:url" content="http://hexo.cnhsh12.net/2017/03/31/秋枫/index.html">
+<meta property="og:site_name" content="君莫笑">
+<meta property="og:description" content="收藏Ryane  &amp;lt;转载&amp;gt;摘要: 我是一名安卓入门开发者，但，我只是入门！而且我对网站开发以及前端的知识几乎是零基础，所以在自己刚接触这个东西的时候，我像很多人一样，都是上网找教程，但是要知道，那都是程序员的教程。所以对于我这个网站技术小白来说，真是很难受，所以藉此机会写一篇让小白看得懂的教程。如果你是一个小白而且又想做自己的博客，可以，请跟着我的脚步，我会带你真真正正做一个属于你自">
+<meta property="og:updated_time" content="2017-05-04T07:52:38.692Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小白独立搭建博客--Github Pages和Hexo简明教程">
+<meta name="twitter:description" content="收藏Ryane  &amp;lt;转载&amp;gt;摘要: 我是一名安卓入门开发者，但，我只是入门！而且我对网站开发以及前端的知识几乎是零基础，所以在自己刚接触这个东西的时候，我像很多人一样，都是上网找教程，但是要知道，那都是程序员的教程。所以对于我这个网站技术小白来说，真是很难受，所以藉此机会写一篇让小白看得懂的教程。如果你是一个小白而且又想做自己的博客，可以，请跟着我的脚步，我会带你真真正正做一个属于你自">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 小白独立搭建博客--Github Pages和Hexo简明教程 | 君莫笑 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">君莫笑</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                小白独立搭建博客--Github Pages和Hexo简明教程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-31T16:07:46+08:00" content="2017-03-31">
+              2017-03-31
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> 收藏<br>Ryane  &lt;转载&gt;<br>摘要: 我是一名安卓入门开发者，但，我只是<strong>入门</strong>！而且我对网站开发以及前端的知识几乎是零基础，所以在自己刚接触这个东西的时候，我像很多人一样，都是上网找教程，但是要知道，<strong>那都是程序员的教程。</strong>所以对于我这个网站技术小白来说，真是很难受，所以藉此机会写一篇让小白看得懂的教程。如果你是一个小白而且又想做自己的博客，可以，请跟着我的脚步，我会带你真真正正做一个属于你自己的博客。<a id="more"></a></p>
+<p>Github地址：<a href="https://github.com/ryanlijianchang/ryanlijianchang.github.io" target="_blank" rel="external">https://github.com/ryanlijianchang/ryanlijianchang.github.io</a></p>
+<p>CSND地址：<a href="http://blog.csdn.net/ljcitworld" target="_blank" rel="external">http://blog.csdn.net/ljcitworld</a></p>
+<p>摘要：这是一篇有关如何使用Github Pages和Hexo搭建自己独立博客的详尽教程，里面介绍了如何使用和配置Hexo框架，如何将Hexo部署到自己的Github项目中，域名注册，以及域名的绑定，还有我在搭建自己博客过程中所遇到的各种困难。</p>
+<p>前言</p>
+<p>我是一名安卓入门开发者，但，我只是入门！而且我对网站开发以及前端的知识几乎是零基础，所以在自己刚接触这个东西的时候，我像很多人一样，都是上网找教程，但是要知道，那都是程序员的教程。所以对于我这个网站技术小白来说，真是很难受，所以藉此机会写一篇让小白看得懂的教程。如果你是一个小白而且又想做自己的博客，可以，请跟着我的脚步，我会带你真真正正做一个属于你自己的博客。</p>
+<p>如果你还不知道你为什么要做一个博客，推荐你看：《我为什么写博客》</p>
+<p>入门门槛</p>
+<p>必须耐得住折腾。<br>刻苦的学习精神和耐心。<br>关于Github</p>
+<center></center>
+
+<p>一、Github的优点</p>
+<p>GitHub是基于git实现的代码托管。git可能是目前最好用的版本控制系统了，非常受欢迎。<br>GitHub可以免费使用，并且快速稳定。<br>Github上面的世界很精彩，用久了你的眼界会开阔很多。<br>二、什么是Github Pages</p>
+<p>Github Pages可以被认为是用户编写的、托管在github上的静态网页。</p>
+<p>三、为什么要使用Github Pages</p>
+<p>可以绑定你的域名(但暂时貌似只能绑定一个)。<br>简单快捷，使用Github Pages可以为你提供一个免费的服务器，免去了自己搭建服务器和写数据库的麻烦。<br>安装Node.js</p>
+<p>在 Windows 环境下安装 Node.js 非常简单，仅须到官网下载安装文件并执行即可完成安装。  像我的是Windows 64位，直接下载安装，不需要配置环境变量。</p>
+<p>安装Git</p>
+<p>下载 msysgit 并执行即可完成安装。(上官网要翻墙，如果你的是64位，可以点击此处下载)</p>
+<p>怎么打开Git？</p>
+<p>安装教程：如何在windows下安装GIT</p>
+<p>Git入门教程：Pro Git（中文版）</p>
+<p>Git基本操作：</p>
+<p>Hexo</p>
+<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<p>一、Hexo安装</p>
+<p>桌面右键鼠标，点击Git Bash Here，输入npm命令即可安装</p>
+<p>npm install hexo-cli -g<br>npm install hexo –save</p>
+<p>#如果命令无法运行，可以尝试更换taobao的npm源<br>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a><br>二、Hexo初始化配置</p>
+<p>创建Hexo文件夹</p>
+<p>安装完成后，根据自己喜好建立目录（如F:\Blog\Hexo），直接进入F:\Blog\Hexo文件夹下右键鼠标，点击Git Bash Here，进入Git命令框，执行以下操作。</p>
+<p>$ hexo init<br>$ npm install<br>安装 Hexo 完成后，Hexo 将会在指定文件夹中新建所需要的文件。Hexo文件夹下的目录如下： </p>
+<p>安装Hexo插件</p>
+<p>如果想不出错，就将下面的插件都安装完。</p>
+<p>npm install hexo-generator-index –save<br>npm install hexo-generator-archive –save<br>npm install hexo-generator-category –save<br>npm install hexo-generator-tag –save<br>npm install hexo-server –save<br>npm install hexo-deployer-git –save<br>npm install hexo-deployer-heroku –save<br>npm install hexo-deployer-rsync –save<br>npm install hexo-deployer-openshift –save<br>npm install hexo-renderer-marked@0.2 –save<br>npm install hexo-renderer-stylus@0.2 –save<br>npm install hexo-generator-feed@1 –save<br>npm install hexo-generator-sitemap@1 –save<br>本地查看效果</p>
+<p>执行下面语句，执行完即可登录localhost:4000查看效果</p>
+<p>hexo generate<br>hexo server<br>登录localhost:4000，即可看到本地的效果如下： </p>
+<p>将博客部署到Github Pages上</p>
+<p>那么现在本地的博客已经搭建起来了，但是我们只可以通过本地连接查看我们的博客。那么我们现在需要做的就是把本地的博客发布到服务器上，让别人也可以连接我们的博客，而Github Pages就帮我完成了这件事情。但是Github Pages的代码就是寄存在Github上面的。那么接下来我们需要在Github上面创建一个新的项目。</p>
+<p>一、注册Github账户</p>
+<p>访问Github首页<br>点击右上角的 Sign Up，注册自己的账户<br>二、创建项目代码库</p>
+<p>注册完登陆后，我们就创建一个我们自己的Github Pages项目。点击New repository。<br>创建要点如下：<br>三、配置SSH密钥</p>
+<p>配置Github的SSH密钥可以让本地git项目与远程的github建立联系，让我们在本地写了代码之后直接通过git操作就可以实现本地代码库与Github代码库同步。操作如下：</p>
+<p>第一步、看看是否存在SSH密钥(keys)</p>
+<p>首先，我们需要看看是否看看本机是否存在SSH keys,打开Git Bash,并运行:</p>
+<p>$ cd ~/. ssh<br>检查你本机用户home目录下是否存在.ssh目录</p>
+<p>如果，不存在此目录，则进行第二步操作，否则，你本机已经存在ssh公钥和私钥，可以略过第二步，直接进入第三步操作。</p>
+<p>第二步、创建一对新的SSH密钥(keys)</p>
+<p>$ssh-keygen -t rsa -C “your_email@example.com”</p>
+<p>#这将按照你提供的邮箱地址，创建一对密钥<br>Generating public/private rsa key pair.<br>Enter file in which to save the key (/c/Users/you/.ssh/id_rsa): [Press enter]<br>直接回车，则将密钥按默认文件进行存储。此时也可以输入特定的文件名，比如/c/Users/you/.ssh/github_rsa</p>
+<p>接着，根据提示，你需要输入密码和确认密码（说到这里，如果你很放心，其实可以不用密码，就是到输密码的地方，都直接回车，所以每次push就只管回车就行了。所谓的最安全的密码，就是没有密码 哈哈）。相关提示如下：</p>
+<p>Enter passphrase (empty for no passphrase): [Type a passphrase]<br>Enter same passphrase again: [Type passphrase again]<br>输入完成之后，屏幕会显示如下信息：</p>
+<p>Your identification has been saved in /c/Users/you/.ssh/id_rsa.<br>Your public key has been saved in /c/Users/you/.ssh/id_rsa.pub.<br>The key fingerprint is:<br>01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com<br>第三步、在GitHub账户中添加你的公钥</p>
+<p>运行如下命令，将公钥的内容复制到系统粘贴板(clipboard)中。</p>
+<p>clip &lt; ~/.ssh/id_rsa.pub<br>接着：</p>
+<p>登陆GitHub,进入你的Account Settings.</p>
+<p>2.选择SSH Keys</p>
+<p>3.粘贴密钥，添加即可</p>
+<p>第四步、测试</p>
+<p>可以输入下面的命令，看看设置是否成功，git@github.com的部分不要修改：</p>
+<p>$ ssh -T git@github.com<br>如果是下面的反馈：</p>
+<p>The authenticity of host ‘github.com (207.97.227.239)’ can’t be established.<br>RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.<br>Are you sure you want to continue connecting (yes/no)?<br>不要紧张，输入yes就好，然后会看到：</p>
+<p>Hi cnfeat! You’ve successfully authenticated, but GitHub does not provide shell access.<br>第五步、设置用户信息</p>
+<p>现在你已经可以通过SSH链接到GitHub了，还有一些个人信息需要完善的。 Git会根据用户的名字和邮箱来记录提交。GitHub也是用这些信息来做权限的处理，输入下面的代码进行个人信息的设置，把名称和邮箱替换成你自己的，名字必须是你的真名，而不是GitHub的昵称。</p>
+<p>$ git config –global user.name “cnfeat”//用户名<br>$ git config –global user.email  “cnfeat@gmail.com”//填写自己的邮箱<br>第六步、SSH Key配置成功</p>
+<p>本机已成功连接到github。 如有问题，请参考：</p>
+<p>GitHub Help - Generating SSH Keys</p>
+<p>Error: Permission denied (publickey)</p>
+<p>四、将本地的Hexo文件更新到Github的库中</p>
+<p>第一步、登录Github打开自己的项目 username.github.io</p>
+<p>第二步、打开之后，点击HTTPS，选择HTTPS类型地址</p>
+<p>第三步、复制地址</p>
+<p>第四步、打开你一开始创建的Hexo文件夹（如F:\Blog\Hexo），用记事本打开刚文件夹下的_config.yml文件</p>
+<p>第五步、在配置文件里作如下修改，保存</p>
+<p>第六步、在Hexo文件夹下执行：</p>
+<p>hexo g<br>hexo d<br>或者直接执行</p>
+<p>hexo g -d<br>执行完之后会让你输入github的账号和密码，输入完后就可以登录我们自己的部署在Github Pages服务器上的博客了。对应的地址是 username.github.io(我的是：ryanlijianchang.github.io)。</p>
+<p>第七步、在浏览器上输入自己的主页地址</p>
+<p>在浏览器上输入即可看到我们自己的博客，别人电脑输入也可以哦。 </p>
+<p>美化自己博客</p>
+<p>那么现在我们的博客已经挂在了服务器上面，别人已经可以通过网址来登陆我们的博客了，但是我们这时就有了新的需求，就是自己的博客并不好看，那怎么办的？这很简单，要知道很多前端开发者在Hexo框架下开发了很多的主题给我们使用，我们只需要把他们的主题克隆过来，然后通过修改配置文件即可达到我们所需要的效果。</p>
+<p>那么我们应该怎么修改呢？</p>
+<p>一、进入Hexo的官网主题专栏</p>
+<p>二、挑选我们喜欢的主题</p>
+<p>可以看到有很多主题给我们选，我们只要选择喜欢的主题点击进去，然后进入到它的github地址，我们只要把这个地址复制下来(例如我是选择：hexo-theme-next这个主题)</p>
+<p>三、克隆主题</p>
+<p>再打开Hexo文件夹下的themes目录（F:\Blog\hexo\themes），右键Git Bash，在命令行输入:</p>
+<p>git clone <a href="https://github.com/iissnan/hexo-theme-next(此处地址替换成你需要使用的主题的地址" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next(此处地址替换成你需要使用的主题的地址</a>)<br>下载中，等待下载完成：</p>
+<p>四、修改Hexo配置文件</p>
+<p>下载完成后，打开Hexo文件夹下的配置文件_config.yml</p>
+<p>修改参数为：theme: hexo-theme-next</p>
+<p>五、部署主题，本地查看效果</p>
+<p>返回Hexo目录，右键Git Bash，输入</p>
+<p>hexo g<br>hexo s<br>打开浏览器，输入 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 即可看见我们的主题已经更换了。</p>
+<p>六、如果效果满意，将它部署到Github上</p>
+<p>打开Hexo文件夹，右键Git Bash，输入</p>
+<p>hexo clean   (必须要，不然有时因为缓存问题，服务器更新不了主题)<br>hexo g -d<br>七、打开自己的主页，即可看到修改后的效果</p>
+<p>更多修改效果请查看对应主题的说明文档，点击此查看本主题(Next)对应的说明文档。</p>
+<p>在博客写文章</p>
+<p>一、用hexo发表新文章</p>
+<p>$ hexo n “文章标题”<br>其中 我的家 为文章标题，执行命令 hexo n “我的家” 后，会在项目 \Hexo\source_posts 中生成 我的家.md文件，用编辑器打开编写即可。</p>
+<p>当然，也可以直接在\Hexo\source_posts中新建一个md文件，我就是这么做的。 写完后，推送到服务器上，执行以下命令即可在我们的站点看到新的文章。</p>
+<p>$ hexo g #生成<br>$ hexo d #部署 # 可与hexo g合并为 hexo d -g<br>二、用Markdown写文章</p>
+<p>我们注意到在 \Hexo\source_posts 文件夹下存放着我们的文章，它们的格式都是以.md格式结尾的，没错，Hexo也是支持Markdown语法的，所以当我们需要写具有格式化的文章时，我们可以使用支持Markdown语法的编辑器进行文章编译，然后保存文件到 \Hexo\source_posts 文件夹下即可。</p>
+<p>复制进去之后，只要执行</p>
+<p>$ hexo d -g<br>推送到我们的Github仓库即可。</p>
+<p>那么什么是Markdown？</p>
+<p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。</p>
+<p>Markdown有什么优点？</p>
+<p>专注你的文字内容而不是排版样式。<br>轻松的导出 HTML、PDF 和本身的 .md 文件。<br>纯文本内容，兼容所有的文本编辑器与字处理软件。<br>可读，直观。适合所有人的写作语言。<br>我该用什么工具？</p>
+<p>Windows下可以使用 MarkdownPad2。<br>在 Mac OS X 上，我建议你用 Mou 这款免费且十分好用的 Markdown 编辑器。<br>Web 端上，我强烈推荐 简书 这款产品。<br>关于Markdown的更多资料可以查看如下：</p>
+<p>认识与入门 Markdown<br>Markdown入门指南<br>将自己的域名关联到Github Pages上</p>
+<p>很多朋友创建了自己的博客之后会选择买一个属于自己的域名，然后将自己域名绑定到自己的Github Pages博客上，其实这也并不难，只要你有个域名。</p>
+<p>一、购买域名</p>
+<p>如果你不是很有钱，在阿里云上，你只要几块钱就可以买到一个域名。</p>
+<p>选择你喜欢的域名，然后购买即可。</p>
+<p>二、配置CNAME文件</p>
+<p>在 \hexo\source 文件夹下创建文件 CNAME （新建记事本文件命名CNAME，然后打开）</p>
+<p>内容为你的域名，例如我的域名是：lijianchang.xyz</p>
+<p>在Hexo文件夹提交</p>
+<p>hexo g -d<br>三、修改DNS的DNS</p>
+<p>1.如果你是在阿里云购买域名的话，请登录阿里云网站。打开个人中心，点击域名</p>
+<p>2.选择管理</p>
+<p>3.修改DNS为</p>
+<p>f1g1ns2.dnspod.net<br>f1g1ns1.dnspod.net </p>
+<p>四、域名解析</p>
+<p>打开DNSPOD，注册一个账户</p>
+<p>点击添加域名，把你的域名添加进去，如无意外，添加完之后就是以下这个状态 </p>
+<p>此时点击添加记录，添加两个记录，一个主机记录为@， 一个为www，而记录值都是填同一个，填你的博客主页对应的ip，添加完后如下。 </p>
+<p>但是如何获取ip值呢？打开运行，输入cmd，打开命令窗口输入 ping 主页地址 ， 红色部分即为你的ip值 </p>
+<p>将IP输入过去即可。等待生效，最迟72小时生效。即可通过你的域名浏览你的博客主页。</p>
+<p>结语</p>
+<p>当你完成了你的博客之后，相信你的心情跟我刚做完的心情是一样的，即便很累，但是当自己的博客成型之后，自己还是有一个成就感的，那么完成后，以后的路还很长，真正想要自己博客能够积累人气，还得靠好的内容，所以认真写文章吧，相信你会受益于此的。</p>
+<p>如果大家有什么问题的话，可以在我留言板下留言，我看到评论时会第一时间回答大家。</p>
+<p>参考资料：</p>
+<p>Markdown入门手册中文版<br>Markdown–入门指南<br>如何搭建一个独立博客——简明 Github Pages与 jekyll 教程 by cnfeat<br>Hexo搭建Github静态博客 by 金石开<br>使用SSH密钥连接Github【图文教程】 by 轩枫</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/31/风云/" rel="next" title="宝贝  哈哈哈...">
+                <i class="fa fa-chevron-left"></i> 宝贝  哈哈哈...
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/04/linux基础知识/" rel="prev" title="linux 基础知识">
+                linux 基础知识 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Tommy" />
+          <p class="site-author-name" itemprop="name">Tommy</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tommy</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
